@@ -1,0 +1,6 @@
+﻿__pycache__/
+*.pyc
+.tmp/
+*.wav
+*.mp4
+node_modules/
