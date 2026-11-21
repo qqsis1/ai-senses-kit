@@ -33,9 +33,11 @@ class SrtParseTest(unittest.TestCase):
 
     @staticmethod
     def _write(text: str) -> str:
-        p = Path(__file__).resolve().parent / "_tmp_sample.srt"
-        p.write_text(text, encoding="utf-8")
-        return str(p)
+        import tempfile
+        f = tempfile.NamedTemporaryFile('w', suffix='.srt', delete=False, encoding='utf-8')
+        f.write(text)
+        f.close()
+        return f.name
 
 
 if __name__ == "__main__":
