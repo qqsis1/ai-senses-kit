@@ -1,0 +1,5 @@
+# dsh-bili-kb —— DSH bundle patch
+- insert:
+    - id: bili-kb
+      name: dsh-bili-kb
+      config: {}
