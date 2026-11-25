@@ -33,7 +33,18 @@ scripts/fix_tts_wav.py  修 TTS 返回的 wav 头（长度写成 0xFFFFFFFF）
 scripts/check_av.py     三向核对：字幕覆盖、时长一致、文稿覆盖率（ASR 不可靠时只报 warn）；`--frames/--sheet` 抽帧+联系表做画面核对
 scripts/ledger_gate.py  写入门禁：判断类缺失效条件、或记录缺证据指针时拒绝写入
 tests/                  unittest：门禁规则、SRT 解析、覆盖率；不需要 ffmpeg/视频
+plugins/bili-kb/        本地 B 站知识库（DSH 插件）：先查梗概再读原片，读完写回，每条带证据
+tools/plugin_scan.mjs   装插件之前先扫：版本范围、peer 钉死、安装脚本、网络/子进程/凭据痕迹
+tools/prompt_budget.mjs 量“每轮进门带多少 token”，改提示前后的两个数
 ```
+
+## v0.3：从“检查”扩到“记住”
+
+v0.2 只做一件事：**出片前把画面和字幕对起来**。v0.3 补上另一半——**看过的东西要留得下、查得到**：
+
+- `plugins/bili-kb`：刷视频时先查库（命中的就不重读），读完用 `kb_add` 写回，`evidence` 写明来源与覆盖程度。**梗概是索引，不是“看过原片”的证据。**
+- `tools/plugin_scan.mjs`：装别人的插件前，先看它要什么权限、有没有被钉死的 peer、会不会起子进程。**装之前能看清，比装完再卸便宜。**
+- `tools/prompt_budget.mjs`：“改提示前先量”的可执行版——没有前后两个数，就不算优化。
 
 ## 作者与分工
 
