@@ -1,0 +1,16 @@
+{
+  "name": "dsh-bili-kb",
+  "version": "0.1.0",
+  "description": "本地 B 站知识库：先查库里读过的梗概，再决定要不要花钱读原片；读完写回来。",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*"
+  }
+}
